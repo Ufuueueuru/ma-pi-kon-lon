@@ -13,7 +13,7 @@
             this.addAction(new Toki("sina toki tawa jan ante anu seme", assetManager.images.jan, assetManager.sounds.jan));
             this.addAction(new Toki("ala a       ala a          \nmi wile esun!", assetManager.images.lesaLawa, assetManager.sounds.lesa));
             this.addAction(new Toki("     .     .     .", assetManager.images.jan, assetManager.sounds.jan));
-            this.addAction(new Toki("mi      jo ala e mani", assetManager.images.janPoka, assetManager.sounds.janPakala));
+            this.addAction(new Toki("mi      jo ala e mani", assetManager.images.janPoka, assetManager.sounds.janAnpa));
             this.addAction(new Toki("mani li     .     .     .     seme               \nsina toki e 　tema nito　 anu seme", assetManager.images.lesaLawaPilin, assetManager.sounds.lesa));
             this.addAction(new Toki("mani ala...     \nsina wile esun kepeken seme", assetManager.images.jan, assetManager.sounds.jan));
             if (choices.talkToTeti) {
@@ -21,16 +21,16 @@
                 this.addAction(new TokiLili("                    ", assetManager.images.jan, assetManager.sounds.jan));
                 this.addAction(new Toki("mi ken ala pana e ni!", assetManager.images.janPakala, assetManager.sounds.jan));
                 this.addAction(new Toki("mi wile e telo loje sina", assetManager.images.lesaLawaPilin, assetManager.sounds.lesa));
-                this.addAction(new TokiLili("                    ", assetManager.images.janPakala, assetManager.sounds.janPakala));
+                this.addAction(new TokiLili("                    ", assetManager.images.janPakala, assetManager.sounds.janAnpa));
                 this.addAction(new Toki("mi wile a e telo loje sina", assetManager.images.lesaLawaPilin, assetManager.sounds.lesa));
-                this.addAction(new TokiLili("                    ", assetManager.images.janPakala, assetManager.sounds.janPakala));
+                this.addAction(new TokiLili("                    ", assetManager.images.janPakala, assetManager.sounds.janAnpa));
                 this.addAction(new ShakeNoise(25, 5, 4));
                 this.addAction(new PlaySound(assetManager.sounds.pakalaKipisi));
-                this.addAction(new Toki("               .               .               .", assetManager.images.janMoli, assetManager.sounds.janPakala));
+                this.addAction(new Toki("               .               .               .", assetManager.images.janMoli, assetManager.sounds.janAnpa));
                 this.addAction(new ShakeNoise(25, 5, 4));
                 this.addAction(new PlaySound(assetManager.sounds.pakalaKipisi));
                 this.addAction(new WaitInt(10));
-                this.addAction(new Toki("", assetManager.images.janMoli, assetManager.sounds.janPakala));
+                this.addAction(new Toki("", assetManager.images.janMoli, assetManager.sounds.janAnpa));
                 this.addAction(new Toki("soweli [tenpoentawainsa] li lukin e tenpo kama sina la mi ken ala lanpan e kon sina"), assetManager.images.lesaLawaIke, assetManager.sounds.lesa);
                 this.addAction(new Toki("taso telo loje sina li awen pona tawa mi"), assetManager.images.lesaLawaSuwi, assetManager.sounds.lesa);
             } else {
@@ -66,9 +66,12 @@
                     this.count++;
                 }).addField("count", 0));
                 this.addAction(new BlinkInt(30));
+                this.addAction(new Toki("n          n          n          n          .          .          .", assetManager.images.janPakala, assetManager.sounds.janPakala));
+                this.addAction(new Toki("taso...\nmi pilin     .     .     .     sama　.　.　.　", assetManager.images.jan, assetManager.sounds.jan));
                 
             }
             this.addAction(new RunInt(function() {
+                choices.talkToLesa = true;
                 lesa.clickedFunc = () => {
                     currentScene.addAction(new Toki("...", assetManager.images.lesaLawaSuwi, assetManager.sounds.lesa));
                 }
@@ -81,17 +84,21 @@
                 }
                 this.finished = true;
             }));
+            this.addAction(new RunInt(function() {
+                tawa.setHidden(false);
+                this.finished = true;
+            }));
         });
         this.addEntity(lesa);
 
-        let tawa = new Entity(assetManager.images.tawa1, 120, 30,
+        let tawa = new Entity(assetManager.images.tawa1, 220, 60,
             () => {
-                currentScene.addAction(new Toki("mi tawa     .     .     .     \njan li lon, taso mi tawa", assetManager.images.janPakala, assetManager.sounds.janPakala));
+                currentScene.addAction(new Toki("mi        .        .        .        \nawen tawa", assetManager.images.janPakala, assetManager.sounds.janAnpa));
                 currentScene.addAction(new RunInt(function() {
-                    currentScene.transitionTo(MenuScene);
+                    currentScene.transitionTo(LupaScene);
                     this.finished = true;
                 }));
-            }).setHoverImage(assetManager.images.tawa2).setHidden();
+            }).setHoverImage(assetManager.images.tawa2);//.setHidden();
         this.addEntity(tawa);
         //this.addEntity(new Decoration(assetManager.images.kasi1, 64, 27));
         //this.addEntity(new Decoration(assetManager.images.kasi2, 133, 40));

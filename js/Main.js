@@ -72,9 +72,13 @@ function setup() {
 	currentScene = new LoadingScene();
 
 	choices = {
+		//Decisions
 		pickUpPalisa: false,
 		talkToTeti: false,
-		talkToLesa: false
+		talkToLesa: false,
+
+		//Keeping track of actions
+		seenDoor: false
 	};
 
 	assetManager = new AssetManager();
@@ -87,6 +91,12 @@ function setup() {
 
 	assetManager.addImage("resources/sitelen/tawa1.png", "tawa1", true);
 	assetManager.addImage("resources/sitelen/tawa2.png", "tawa2", true);
+	assetManager.addImage("resources/sitelen/tawa1L.png", "tawa1L", true);
+	assetManager.addImage("resources/sitelen/tawa2L.png", "tawa2L", true);
+	assetManager.addImage("resources/sitelen/tawa1U.png", "tawa1U", true);
+	assetManager.addImage("resources/sitelen/tawa2U.png", "tawa2U", true);
+	assetManager.addImage("resources/sitelen/tawa1R.png", "tawa1R", true);
+	assetManager.addImage("resources/sitelen/tawa2R.png", "tawa2R", true);
 
 	assetManager.addImage("resources/sitelen/jan.png", "jan", true);
 	assetManager.addImage("resources/sitelen/janPoka.png", "janPoka", true);
@@ -110,6 +120,11 @@ function setup() {
 	assetManager.addImage("resources/sitelen/lesaLawaPilin.png", "lesaLawaPilin", true);
 	assetManager.addImage("resources/sitelen/lesaLawaIke.png", "lesaLawaIke", true);
 	assetManager.addImage("resources/sitelen/tomoEsunLili.png", "tomoEsunLili", true);
+
+	assetManager.addImage("resources/sitelen/nasinLupa.png", "nasinLupa", true);
+	assetManager.addImage("resources/sitelen/nasinLupaL.png", "nasinLupaL", true);
+	assetManager.addImage("resources/sitelen/nasinLupaR.png", "nasinLupaR", true);
+
 
 	assetManager.addImage("resources/sitelen/kasi1.png", "kasi1", true);
 	assetManager.addImage("resources/sitelen/kasi2.png", "kasi2", true);
