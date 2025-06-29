@@ -58,7 +58,7 @@ class Scene {
                         foundInterrupt = true;
                     this.currentActions[u].run();
                     u++;
-                } while (u < this.currentActions.length && !this.currentActions[u].interrupt);
+                } while (u < this.currentActions.length && !foundInterrupt);
 
                 if (!foundInterrupt) {
                     for (let i in this.entities) {

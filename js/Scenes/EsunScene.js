@@ -6,7 +6,7 @@
         //    () => {
         //        currentScene.transitionTo(TeddyScene);
         //    }, "tawa"));
-        let lesa = new Entity(assetManager.images.lesan, 150, 105, () => {
+        let lesa = new Entity(assetManager.images.lesan, 150, 110, () => {
             this.addAction(new Toki("toki     \nsina jo ala jo e misikeke", assetManager.images.jan, assetManager.sounds.jan));
             this.addAction(new TokiLili(".   .   .   li   kama   lon   nasin          ", assetManager.images.lesaLawaIke, assetManager.sounds.lesa));
             this.addAction(new Toki("jan o     toki  a  a  a  ", assetManager.images.lesaLawaSuwi, assetManager.sounds.lesa));
@@ -35,9 +35,9 @@
                 this.addAction(new Toki("taso telo loje sina li awen pona tawa mi"), assetManager.images.lesaLawaSuwi, assetManager.sounds.lesa);
             } else {
                 this.addAction(new Toki("kepeken pali", assetManager.images.lesaLawaSuwi, assetManager.sounds.lesa));
-                this.addAction(new RunInt(function() {
+                this.addAction(new RunInt(function() {//Animation
                     if (this.count === 63) {
-                        currentScene.addEntity(new Decoration(assetManager.images.tomoEsunLili, 150, 105));
+                        currentScene.addEntity(new Decoration(assetManager.images.tomoEsunLili, 150, 110));
                     }
                     if (this.count === 94) {
                         this.finished = true;
@@ -54,9 +54,19 @@
                         this.tomoEsunLili.draw(g, 150, 105);
                     }
                 }));
-                this.addAction(new Toki("mi awen e sina tan pakala la     .     .     .          \nsina pali e wile mi\n\ntoki lili la          mi            kama          jo            e             kon           sina", assetManager.images.lesaLawaIke, assetManager.sounds.lesa));
+                this.addAction(new Toki("mi awen e sina tan pakala la     .     .     .          \nsina pali e wile mi\n\ntoki lili la          mi            kamajo            ekon           sina", assetManager.images.lesaLawaIke, assetManager.sounds.lesa));
                 this.addAction(new Toki("mi wile ala e ni!", assetManager.images.jan, assetManager.sounds.jan));
                 this.addAction(new Toki("wile sina li suli ala\nmi open e nasin", assetManager.images.lesaLawaSuwi, assetManager.sounds.lesa));
+                this.addAction(new ShakeNoise(30, 5, 4));
+                this.addAction(new Run(function() {
+                    if (this.count === 18) {
+                        lesa.setHidden();
+                        this.finished = true;
+                    }
+                    this.count++;
+                }).addField("count", 0));
+                this.addAction(new BlinkInt(30));
+                
             }
             this.addAction(new RunInt(function() {
                 lesa.clickedFunc = () => {
