@@ -12,8 +12,16 @@ class TuTreesScene extends Scene {
         this.addEntity(new Decoration(assetManager.images.kasi0, 200, 0));
 
         let palisa = new Entity(assetManager.images.palisa, 0, 200, () => {
-            this.addAction(new Toki("mi...\nwile ala wile e palisa ni", assetManager.images.jan, assetManager.sounds.jan));
+            this.addAction(new Toki("mi...\nken wile e palisa ni", assetManager.images.jan, assetManager.sounds.jan));
+            this.addAction(new RunInt(function() {
+                choices.pickUpPalisa = true;
+                this.finished = true;
+                palisa.setHidden();
+            }));
+            this.addAction(new PlaySound(assetManager.sounds.joPalisa));
+            this.addAction(new Toki("pona la mi wile ala kepeken palisa ni", assetManager.images.jan, assetManager.sounds.jan));
         });
+        this.addEntity(palisa);
 
         //this.addEntity(new Decoration(assetManager.images.kasi1, 64, 27));
         //this.addEntity(new Decoration(assetManager.images.kasi2, 133, 40));

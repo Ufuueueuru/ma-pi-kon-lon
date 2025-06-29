@@ -7,7 +7,7 @@ class MenuScene extends Scene {
 
         this.addEntity(new Button(assetManager.images.nenaLili, 163, 75, 
             () => {
-                currentScene.transitionTo(TuTreesScene);//Should be TuTreesScene
+                currentScene.transitionTo(EsunScene);//Should be TuTreesScene
             }, "tawa"));
         this.addEntity(new Button(assetManager.images.nenaLili, 140, 115, 
             () => {

@@ -43,7 +43,7 @@
             () => {
                 currentScene.addAction(new Toki("mi wile ala luka e soweli len\nmi o alasa e jan", assetManager.images.jan, assetManager.sounds.jan));
                 currentScene.addAction(new RunInt(function() {
-                    currentScene.transitionTo(MenuScene);
+                    currentScene.transitionTo(EsunScene);
                     this.finished = true;
                 }));
             }).setHoverImage(assetManager.images.tawa2).setHidden();

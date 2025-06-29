@@ -22,6 +22,11 @@ class Scene {
         this.noiseShake = 0;
         this.shakeIntensity = 1;
         this.shakeSpeed = 1;
+
+        this.blink = false;
+        this.blinkDir = 2;
+        this.blinkDuration = 30;
+        this.blinkCount = 0;
     }
 
     init() {}
@@ -32,6 +37,16 @@ class Scene {
         }
         if (this.noiseShake > 0) {
             this.noiseShake--;
+        }
+        if (this.blink) {
+            if (this.blinkCount >= this.blinkDuration) {
+                this.blinkDir = -this.blinkDir;
+            }
+            this.blinkCount += this.blinkDir;
+
+            if (this.blinkCount <= 0) {
+                this.blink = false;
+            }
         }
 
         if (this.transitioning === 0) {
@@ -118,6 +133,10 @@ class Scene {
                 break;
             }
         }
+
+        if (this.blink) {
+            this.drawBlink(g);
+        }
     }
 
     drawEnd(g) {
@@ -125,6 +144,25 @@ class Scene {
             this.drawInto(g);
         if (this.transitioning < 0)
             this.drawOut(g);
+    }
+
+    drawBlink(g) {
+        transG.blendMode(BLEND);
+	    transG.background(0);
+	    transG.blendMode(REMOVE);
+	    //g.background(0);
+	    //noStroke();
+	    transG.fill(0);
+	    transG.stroke(0);
+	    let max = this.blinkDuration - 15;
+        let currentTrans = Math.max(0, max - this.blinkCount);
+	    transG.ellipse(128, 260 + floor(currentTrans / 3 * 200 / max), 170 + floor(currentTrans * 2 * 200 / max), 40 + floor(currentTrans * 2 * 210 / max));
+  
+	    g.image(transG, 0, -120);
+        g.push();
+        g.rotate(PI);
+        g.image(transG, -256, -360);
+        g.pop();
     }
 
     transitionTo(scene, ...params) {

@@ -5,6 +5,16 @@ class Action {
         this.interrupt = false;
     }
 
+    addField(name, value) {
+        this[name] = value;
+        return this;
+    }
+
+    setDraw(func) {
+        this.draw = func.bind(this);
+        return this;
+    }
+
     mouseClicked() {}
 
     run() {}
@@ -69,6 +79,39 @@ class PlaySoundInt extends RunInt {
             this.finished = true;
         });
         this.sound = sound;
+    }
+}
+
+class Blink extends Action {
+    constructor (duration, speed=2) {
+        super();
+
+        this.initialized = false;
+
+        this.duration = duration;
+        this.speed = speed;
+    }
+
+    run() {
+        if (!this.initialized) {
+            this.initialized = true;
+            currentScene.blink = true;
+            currentScene.blinkDir = this.speed;
+            currentScene.blinkDuration = this.duration;
+            currentScene.blinkCount = 0;
+        }
+
+        if (!currentScene.blink) {
+            this.finished = true;
+        }
+    }
+}
+
+class BlinkInt extends Blink {
+    constructor (duration, speed) {
+        super(duration, speed);
+
+        this.interrupt = true;
     }
 }
 

@@ -76,7 +76,7 @@ class Entity extends Rectangle {
 
     //Only true if the entity is also clickable
     isHovering() {
-        return this.clickable && this.isMouseTouching() && this.canAction;
+        return this.clickable && this.isMouseTouching() && this.canAction && !this.hidden;
     }
 
     setCanAction() {

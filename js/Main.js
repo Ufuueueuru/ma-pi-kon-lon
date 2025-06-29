@@ -103,16 +103,19 @@ function setup() {
 	assetManager.addImage("resources/sitelen/tetiLawa.png", "tetiLawa", true);
 	assetManager.addImage("resources/sitelen/tetiLawaWile.png", "tetiLawaWile", true);
 
+	assetManager.addImage("resources/sitelen/nasinLesa.png", "nasinLesa", true);
 	assetManager.addImage("resources/sitelen/lesan.png", "lesan", true);
 	assetManager.addImage("resources/sitelen/lesaLawa.png", "lesaLawa", true);
 	assetManager.addImage("resources/sitelen/lesaLawaSuwi.png", "lesaLawaSuwi", true);
 	assetManager.addImage("resources/sitelen/lesaLawaPilin.png", "lesaLawaPilin", true);
 	assetManager.addImage("resources/sitelen/lesaLawaIke.png", "lesaLawaIke", true);
+	assetManager.addImage("resources/sitelen/tomoEsunLili.png", "tomoEsunLili", true);
 
 	assetManager.addImage("resources/sitelen/kasi1.png", "kasi1", true);
 	assetManager.addImage("resources/sitelen/kasi2.png", "kasi2", true);
 	
 	assetManager.addSpritesheetImp("resources/sitelen/arrow.png", "arrow", "//");
+	assetManager.addSpritesheetImp("resources/sitelen/tomoEsunLiliAnim.png", "tomoEsunLiliAnim", "//");
 
 	assetManager.addSound("resources/kalamaLili/jan.wav", "jan", {
 		volume: 1
@@ -129,6 +132,10 @@ function setup() {
 	}, true);
 
 	assetManager.addSound("resources/kalamaLili/joPalisa.wav", "joPalisa", {
+		volume: 1
+	}, true);
+
+	assetManager.addSound("resources/kalamaLili/konEsun.wav", "konEsun", {
 		volume: 1
 	}, true);
 

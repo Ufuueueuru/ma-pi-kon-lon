@@ -1,6 +1,6 @@
 ﻿class EsunScene extends Scene {
     init() {
-        this.background = undefined;
+        this.background = assetManager.images.nasinLesa;
 
         //this.addEntity(new Button(assetManager.images.nenaLili, 163, 75, 
         //    () => {
@@ -30,9 +30,33 @@
                 this.addAction(new ShakeNoise(25, 5, 4));
                 this.addAction(new PlaySound(assetManager.sounds.pakalaKipisi));
                 this.addAction(new WaitInt(10));
-                this.addAction(new TokiLili("", assetManager.images.janMoli, assetManager.sounds.janPakala));
+                this.addAction(new Toki("", assetManager.images.janMoli, assetManager.sounds.janPakala));
+                this.addAction(new Toki("soweli [tenpoentawainsa] li lukin e tenpo kama sina la mi ken ala lanpan e kon sina"), assetManager.images.lesaLawaIke, assetManager.sounds.lesa);
+                this.addAction(new Toki("taso telo loje sina li awen pona tawa mi"), assetManager.images.lesaLawaSuwi, assetManager.sounds.lesa);
             } else {
-
+                this.addAction(new Toki("kepeken pali", assetManager.images.lesaLawaSuwi, assetManager.sounds.lesa));
+                this.addAction(new RunInt(function() {
+                    if (this.count === 63) {
+                        currentScene.addEntity(new Decoration(assetManager.images.tomoEsunLili, 150, 105));
+                    }
+                    if (this.count === 94) {
+                        this.finished = true;
+                    }
+                    if (this.count === 0) {
+                        assetManager.sounds.konEsun.play();
+                    }
+                    if (this.count < 64) {
+                        this.tomoEsunLili.run();
+                    }
+                    this.count++;
+                }).addField("count", 0).addField("tomoEsunLili", Spritesheet.copy(assetManager.spritesheets.tomoEsunLiliAnim)).setDraw(function(g) {
+                    if (this.count < 64) {
+                        this.tomoEsunLili.draw(g, 150, 105);
+                    }
+                }));
+                this.addAction(new Toki("mi awen e sina tan pakala la     .     .     .          \nsina pali e wile mi\n\ntoki lili la          mi            kama          jo            e             kon           sina", assetManager.images.lesaLawaIke, assetManager.sounds.lesa));
+                this.addAction(new Toki("mi wile ala e ni!", assetManager.images.jan, assetManager.sounds.jan));
+                this.addAction(new Toki("wile sina li suli ala\nmi open e nasin", assetManager.images.lesaLawaSuwi, assetManager.sounds.lesa));
             }
             this.addAction(new RunInt(function() {
                 lesa.clickedFunc = () => {
