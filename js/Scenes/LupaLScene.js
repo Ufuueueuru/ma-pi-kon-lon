@@ -16,15 +16,15 @@ class LupaLScene extends Scene {
                 }));
             }).setHoverImage(assetManager.images.tawa2R);//.setHidden();
         this.addEntity(tawaR);
-        /*let tawaL = new Entity(assetManager.images.tawa1L, 0, 104,
+        let tawaL = new Entity(assetManager.images.tawa1L, 0, 174,
             () => {
                 //currentScene.addAction(new Toki("mi        .        .        .        \nawen tawa", assetManager.images.janPakala, assetManager.sounds.janPakala));
                 currentScene.addAction(new RunInt(function() {
-                    currentScene.transitionTo(LupaScene);
+                    currentScene.transitionTo(PiniScene);
                     this.finished = true;
                 }));
             }).setHoverImage(assetManager.images.tawa2L);//.setHidden();
-        this.addEntity(tawaL);*/
+        this.addEntity(tawaL);
         //this.addEntity(new Decoration(assetManager.images.kasi1, 64, 27));
         //this.addEntity(new Decoration(assetManager.images.kasi2, 133, 40));
 

@@ -7,15 +7,15 @@ class MenuScene extends Scene {
 
         this.addEntity(new Button(assetManager.images.nenaLili, 163, 75, 
             () => {
-                currentScene.transitionTo(EsunScene);//Should be TuTreesScene
+                currentScene.transitionTo(TuTreesScene);//Should be TuTreesScene
             }, "tawa"));
         this.addEntity(new Button(assetManager.images.nenaLili, 140, 115, 
             () => {
-                currentScene.transitionTo(MenuScene);
+                currentScene.transitionTo(SettingsScene);
             }, "ante"));
         this.addEntity(new Button(assetManager.images.nenaLili, 117, 155, 
             () => {
-                currentScene.transitionTo(MenuScene);
+                currentScene.transitionTo(CreditsScene);
             }, "tan"));
 
         if (!assetManager.sounds.konPimeja.playing())

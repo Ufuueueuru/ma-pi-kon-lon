@@ -17,6 +17,13 @@ class Entity extends Rectangle {
         this.canAction = false;
     }
 
+    setSize(width, height) {
+        this.width = width;
+        this.height = height;
+
+        return this;
+    }
+
     setHoverImage(image) {
         this.hoverImage = image;
 

@@ -25,6 +25,16 @@
                 }));
             }).setHoverImage(assetManager.images.tawa2L);//.setHidden();
         this.addEntity(tawaL);
+
+        if (choices.getKey) {
+            this.addEntity(new Entity(undefined, 64, 0, () => {
+                currentScene.addAction(new Toki("mi tawa insa...", assetManager.images.jan, assetManager.sounds.jan));
+                currentScene.addAction(new RunInt(function() {
+                    currentScene.transitionTo(ChantScene);
+                }));
+            }).setSize(130, 168));
+        }
+
         //this.addEntity(new Decoration(assetManager.images.kasi1, 64, 27));
         //this.addEntity(new Decoration(assetManager.images.kasi2, 133, 40));
 

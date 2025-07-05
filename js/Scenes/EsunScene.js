@@ -13,7 +13,7 @@
             this.addAction(new Toki("sina toki tawa jan ante anu seme", assetManager.images.jan, assetManager.sounds.jan));
             this.addAction(new Toki("ala a       ala a          \nmi wile esun!", assetManager.images.lesaLawa, assetManager.sounds.lesa));
             this.addAction(new Toki("     .     .     .", assetManager.images.jan, assetManager.sounds.jan));
-            this.addAction(new Toki("mi      jo ala e mani", assetManager.images.janPoka, assetManager.sounds.janAnpa));
+            this.addAction(new Toki("mi     jo ala e mani", assetManager.images.janPoka, assetManager.sounds.janAnpa));
             this.addAction(new Toki("mani li     .     .     .     seme               \nsina toki e 　tema nito　 anu seme", assetManager.images.lesaLawaPilin, assetManager.sounds.lesa));
             this.addAction(new Toki("mani ala...     \nsina wile esun kepeken seme", assetManager.images.jan, assetManager.sounds.jan));
             if (choices.talkToTeti) {
@@ -31,8 +31,8 @@
                 this.addAction(new PlaySound(assetManager.sounds.pakalaKipisi));
                 this.addAction(new WaitInt(10));
                 this.addAction(new Toki("", assetManager.images.janMoli, assetManager.sounds.janAnpa));
-                this.addAction(new Toki("soweli [tenpoentawainsa] li lukin e tenpo kama sina la mi ken ala lanpan e kon sina"), assetManager.images.lesaLawaIke, assetManager.sounds.lesa);
-                this.addAction(new Toki("taso telo loje sina li awen pona tawa mi"), assetManager.images.lesaLawaSuwi, assetManager.sounds.lesa);
+                this.addAction(new Toki("soweli [tenpoensijeloinsa] li lukin e tenpo kama sina la mi ken ala lanpan e kon sina", assetManager.images.lesaLawaIke, assetManager.sounds.lesa));
+                this.addAction(new Toki("taso telo loje sina li awen pona tawa mi", assetManager.images.lesaLawaSuwi, assetManager.sounds.lesa));
             } else {
                 this.addAction(new Toki("kepeken pali", assetManager.images.lesaLawaSuwi, assetManager.sounds.lesa));
                 this.addAction(new RunInt(function() {//Animation
@@ -54,7 +54,7 @@
                         this.tomoEsunLili.draw(g, 150, 105);
                     }
                 }));
-                this.addAction(new Toki("mi awen e sina tan pakala la     .     .     .          \nsina pali e wile mi\n\ntoki lili la          mi            kamajo            ekon           sina", assetManager.images.lesaLawaIke, assetManager.sounds.lesa));
+                this.addAction(new Toki("mi awen e sina tan pakala la     .     .     .          \nsina pali e wile mi\n\ntoki lili la           mi             kamajo             ekon           sina", assetManager.images.lesaLawaIke, assetManager.sounds.lesa));
                 this.addAction(new Toki("mi wile ala e ni!", assetManager.images.jan, assetManager.sounds.jan));
                 this.addAction(new Toki("wile sina li suli ala\nmi open e nasin", assetManager.images.lesaLawaSuwi, assetManager.sounds.lesa));
                 this.addAction(new ShakeNoise(30, 5, 4));
@@ -66,6 +66,7 @@
                     this.count++;
                 }).addField("count", 0));
                 this.addAction(new BlinkInt(30));
+                this.addAction(new WaitInt(15));
                 this.addAction(new Toki("n          n          n          n          .          .          .", assetManager.images.janPakala, assetManager.sounds.janPakala));
                 this.addAction(new Toki("taso...\nmi pilin     .     .     .     sama　.　.　.　", assetManager.images.jan, assetManager.sounds.jan));
                 
@@ -78,7 +79,7 @@
                 tawa.clickedFunc = () => {
                     currentScene.addAction(new Toki("mi awen tawa", assetManager.images.jan, assetManager.sounds.jan));
                     currentScene.addAction(new RunInt(function() {
-                        currentScene.transitionTo(MenuScene);
+                        currentScene.transitionTo(LupaScene);
                         this.finished = true;
                     }));
                 }

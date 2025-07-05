@@ -10,7 +10,7 @@
             this.addAction(new TokiLili("mi luka e soweli             .             .             .     ", assetManager.images.jan, assetManager.sounds.jan));
             this.addAction(new Toki("o luka ala e mi!", assetManager.images.tetiLawa, assetManager.sounds.tetiIke));
             this.addAction(new Toki("aa          \nsina monsuta anu seme", assetManager.images.jan, assetManager.sounds.jan));
-            this.addAction(new Toki("mi monsuta ala     \nmi soweli\nsina ike ala ike tawa jan, anu tawa mi taso", assetManager.images.tetiLawa, assetManager.sounds.teti));
+            this.addAction(new Toki("mi monsuta ala      \nmi soweli\nsina ike ala ike tawa jan, anu tawa mi taso", assetManager.images.tetiLawa, assetManager.sounds.teti));
             this.addAction(new Toki(".          .          .           \nmi wile ala ike tawa ijo ante", assetManager.images.jan, assetManager.sounds.jan));
             this.addAction(new Toki("tenpo ni li nasa\n mi pilin nasa\nmi sona e ala lon ma ni", assetManager.images.jan, assetManager.sounds.jan));
             this.addAction(new Toki("ma...               ni          ...?", assetManager.images.tetiLawa, assetManager.sounds.teti));

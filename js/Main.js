@@ -53,6 +53,7 @@ let currentScene;
 let graphicsWidth;
 let graphicsHeight;
 
+let resetChoices;
 let choices;
 
 function setup() {
@@ -71,21 +72,32 @@ function setup() {
 
 	currentScene = new LoadingScene();
 
-	choices = {
-		//Decisions
-		pickUpPalisa: false,
-		talkToTeti: false,
-		talkToLesa: false,
+	resetChoices = () => {
+		choices = {
+			//Decisions
+			pickUpPalisa: false,
+			talkToTeti: false,
+			talkToLesa: false,
+			talkToPal: false,
+			getKey: false,
+			tradePalisa: false,
 
-		//Keeping track of actions
-		seenDoor: false
-	};
+			deadToTeti: false,
+			deadToLesa: false,
+
+			//Keeping track of actions
+			seenDoor: false,
+		}
+	}
+	resetChoices();
 
 	assetManager = new AssetManager();
 
 	assetManager.addFont("resources/nimi/leko majuna.ttf", "lekoMajuna", true);
 
 	assetManager.addImage("resources/sitelen/title.png", "title", true);
+	assetManager.addImage("resources/sitelen/credits.png", "credits", true);
+	assetManager.addImage("resources/sitelen/settings.png", "settings", true);
 	assetManager.addImage("resources/sitelen/nenaLili.png", "nenaLili", true);
 	assetManager.addImage("resources/sitelen/lekoToki.png", "lekoToki", true);
 
@@ -110,6 +122,7 @@ function setup() {
 
 	assetManager.addImage("resources/sitelen/nasin.png", "nasin", true);
 	assetManager.addImage("resources/sitelen/teti.png", "teti", true);
+	assetManager.addImage("resources/sitelen/tetiSuli.png", "tetiSuli", true);
 	assetManager.addImage("resources/sitelen/tetiLawa.png", "tetiLawa", true);
 	assetManager.addImage("resources/sitelen/tetiLawaWile.png", "tetiLawaWile", true);
 
@@ -124,14 +137,26 @@ function setup() {
 	assetManager.addImage("resources/sitelen/nasinLupa.png", "nasinLupa", true);
 	assetManager.addImage("resources/sitelen/nasinLupaL.png", "nasinLupaL", true);
 	assetManager.addImage("resources/sitelen/nasinLupaR.png", "nasinLupaR", true);
+	assetManager.addImage("resources/sitelen/iloOpen.png", "iloOpen", true);
+	assetManager.addImage("resources/sitelen/janPalisa.png", "janPalisa", true);
+	assetManager.addImage("resources/sitelen/janPalisaLawa.png", "janPalisaLawa", true);
+	assetManager.addImage("resources/sitelen/janPalisaLawaIke.png", "janPalisaLawaIke", true);
 
+	assetManager.addImage("resources/sitelen/nasinKulupu.png", "nasinKulupu", true);
+
+	assetManager.addImage("resources/sitelen/nasinPini.png", "nasinPini", true);
 
 	assetManager.addImage("resources/sitelen/kasi1.png", "kasi1", true);
 	assetManager.addImage("resources/sitelen/kasi2.png", "kasi2", true);
 	
 	assetManager.addSpritesheetImp("resources/sitelen/arrow.png", "arrow", "//");
 	assetManager.addSpritesheetImp("resources/sitelen/tomoEsunLiliAnim.png", "tomoEsunLiliAnim", "//");
+	assetManager.addSpritesheetImp("resources/sitelen/moli.png", "moli", "//");
 
+	assetManager.addSound("resources/kalamaLili/noise.wav", "noise", {
+		volume: 1
+	}, true);
+	
 	assetManager.addSound("resources/kalamaLili/jan.wav", "jan", {
 		volume: 1
 	}, true);
@@ -139,6 +164,10 @@ function setup() {
 		volume: 1
 	}, true);
 	assetManager.addSound("resources/kalamaLili/janSuli.wav", "janSuli", {
+		volume: 1
+	}, true);
+
+	assetManager.addSound("resources/kalamaLili/janPalisa.wav", "janPalisa", {
 		volume: 1
 	}, true);
 
@@ -163,6 +192,11 @@ function setup() {
 
 	assetManager.addSound("resources/kalamaLili/lesa.wav", "lesa", {
 		volume: 1
+	}, true);
+
+	assetManager.addSound("resources/kalamaLili/chant.wav", "chant", {
+		volume: 1,
+		loop: true
 	}, true);
 
 	assetManager.addSound("resources/kalama/darkWind.mp3", "konPimeja", {
