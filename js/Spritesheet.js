@@ -1,7 +1,3 @@
-let debug = {
-	noSplit: true
-};
-
 class Spritesheet {
 	/**
 	 * 
