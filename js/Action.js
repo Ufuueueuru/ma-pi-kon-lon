@@ -184,7 +184,7 @@ class Toki extends Action {
 	    g.fill(210, 0, 0);
 	    g.noStroke();
 	    g.textSize(9);
-        let texty = this.currentText.substring(0, this.currentTextLength).replace(/\s\s/g, "");
+        let texty = this.currentText.substring(0, this.currentTextLength).replace(/  /g, "");
 	    g.text(texty, 60, 187, 192, 64);
 	    g.text(texty, 60, 187, 192, 64);
 	    g.text(texty, 60, 187, 192, 64);
